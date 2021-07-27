@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on win32)" generated="20210727 14:09:08.649" rpa="false" schemaversion="2">
+<suite id="s1" name="TestSitePractice" source="C:\Users\Ácido Florídrico\Desktop\Cursos\RobotFramework\RobotFramework_estudo\section3\SuiteSiteTestePractice\tests\TestSitePractice.robot">
+<test id="s1-t1" name="Caso de Teste 01: Pesquisar produto existente">
+<kw name="Abrir Navegador" library="Resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210727 14:09:08.902" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
+<status status="PASS" starttime="20210727 14:09:08.902" endtime="20210727 14:09:15.119"/>
+</kw>
+<status status="PASS" starttime="20210727 14:09:08.902" endtime="20210727 14:09:15.119"/>
+</kw>
+<kw name="Acessar página home do site" library="Resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>My Store</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20210727 14:09:15.137" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" starttime="20210727 14:09:15.120" endtime="20210727 14:09:15.138"/>
+</kw>
+<status status="PASS" starttime="20210727 14:09:15.119" endtime="20210727 14:09:15.138"/>
+</kw>
+<kw name="Digitar nome do produto &quot;Blouse&quot;" library="Resource" sourcename="Digitar nome do produto &quot;${PRODUTO}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=search_query</arg>
+<arg>${PRODUTO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210727 14:09:15.139" level="INFO">Typing text 'Blouse' into text field 'name=search_query'.</msg>
+<status status="PASS" starttime="20210727 14:09:15.138" endtime="20210727 14:09:15.225"/>
+</kw>
+<status status="PASS" starttime="20210727 14:09:15.138" endtime="20210727 14:09:15.225"/>
+</kw>
+<kw name="Clicar no botão Pesquisar" library="Resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=submit_search</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210727 14:09:15.226" level="INFO">Clicking element 'name=submit_search'.</msg>
+<status status="PASS" starttime="20210727 14:09:15.226" endtime="20210727 14:09:16.420"/>
+</kw>
+<status status="PASS" starttime="20210727 14:09:15.225" endtime="20210727 14:09:16.421"/>
+</kw>
+<kw name="Fechar Navegador" library="Resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210727 14:09:16.422" endtime="20210727 14:09:18.551"/>
+</kw>
+<status status="PASS" starttime="20210727 14:09:16.421" endtime="20210727 14:09:18.552"/>
+</kw>
+<status status="PASS" starttime="20210727 14:09:08.901" endtime="20210727 14:09:18.552"/>
+</test>
+<status status="PASS" starttime="20210727 14:09:08.652" endtime="20210727 14:09:18.554"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestSitePractice">TestSitePractice</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

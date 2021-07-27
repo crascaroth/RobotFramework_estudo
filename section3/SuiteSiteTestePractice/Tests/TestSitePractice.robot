@@ -1,5 +1,5 @@
 *** Settings ***
-Resource         ../resource/Resource.robot
+Resource         ../Resources/Resource.robot
 
 Test Setup       Abrir Navegador
 Test Teardown    Fechar Navegador
@@ -8,18 +8,16 @@ Test Teardown    Fechar Navegador
 
 
 *** Test Case ***
-Caso de Teste 01: Pequisar produto existente
+Caso de Teste 01: Pesquisar produto existente
     Acessar página home do site
-    Conferir se a página home foi exibida
     Digitar nome do produto "Blouse"
     Clicar no botão Pesquisar
-    Conferir se o produto "Blouse" foi listado no site
+#     Conferir se o produto "Blouse" foi listado no site
 
-Caso de Teste 02: Pesquisar produto não existente
-    Acessar página home do site
-    Conferir se a página home foi exibida
-    Digitar nome do produto "produtoNãoExistente"
-    Clicar no botão Pesquisar
-    Conferir mensagem de erro "No Results were found for your search 'produtoNãoExistente'"
+# Caso de Teste 02: Pesquisar produto não existente
+#     Acessar página home do site
+#     Digitar nome do produto "produtoNãoExistente"
+#     Clicar no botão Pesquisar
+#     Conferir mensagem de erro "No Results were found for your search 'produtoNãoExistente'"
 
-*** Keywords ***
+# *** Keywords ***
