@@ -1,10 +1,12 @@
 *** Settings ***
-Library  Selenium
+Resource         ../resource/Resource.robot
+
+Test Setup       Abrir Navegador
+Test Teardown    Fechar Navegador
 
 *** Variables ***
 
-${URL}       http://automationpractice.com/
-${BROWSER}   chrome
+
 *** Test Case ***
 Caso de Teste 01: Pequisar produto existente
     Acessar página home do site
