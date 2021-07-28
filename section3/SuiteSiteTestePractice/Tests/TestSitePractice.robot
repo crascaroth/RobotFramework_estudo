@@ -12,7 +12,7 @@ Caso de Teste 01: Pesquisar produto existente
     Acessar página home do site
     Digitar nome do produto "Blouse"
     Clicar no botão Pesquisar
-#     Conferir se o produto "Blouse" foi listado no site
+    Conferir se o produto "Blouse" foi listado no site
 
 # Caso de Teste 02: Pesquisar produto não existente
 #     Acessar página home do site
