@@ -31,3 +31,7 @@ Conferir se o produto "${PRODUTO}" foi listado no site
     Wait Until Element Is Visible      css=#center_column > h1
     Title Should Be                    Search - My Store
     Page Should Contain Image          xpath=//*[@id="center_column"]//*[@src="http://automationpractice.com/img/p/7/7-home_default.jpg"]
+
+Conferir mensagem de erro "${MENSAGEM_ALERTA}"
+    Wait Until Element Is Visible      xpath=//*[@id="center_column"]/p
+    Element Text Should Be             xpath=//*[@id="center_column"]/p   ${MENSAGEM_ALERTA}
