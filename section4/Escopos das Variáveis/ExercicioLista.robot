@@ -13,3 +13,12 @@ Conferir se os produtos da sub-categoria "${SUBCATEGORIA}" foram mostrados na p�
     
     
     
+Criar um E-mail Válido
+[Arguments]                             ${NOME}   ${SOBRENOME}
+${STRING_ALEATORIA}                     Generate Random String
+${CUSTOM_EMAIL}                         Set Variable   ${NOME}${SOBRENOME}${STRING_ALEATORIA}@testerobot.com.br
+Log                                     ${CUSTOM_EMAIL}     
+[Return]                                ${CUSTOM_EMAIL}
+
+Informar Um E-mail Válido
+${EMAIL}    Criar um E-mail Válido   ${CLIENTE.nome}   ${CLIENTE.sobrenome}
