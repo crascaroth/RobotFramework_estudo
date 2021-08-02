@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on win32)" generated="20210802 12:41:02.825" rpa="false" schemaversion="2">
+<suite id="s1" name="UsandoLogs" source="C:\Users\Ácido Florídrico\Desktop\Cursos\RobotFramework\RobotFramework_estudo\section5\Estruturas\UsandoLogs.robot">
+<test id="s1-t1" name="Caso de teste exemplo 01">
+<kw name="Usando LOG para mensagens">
+<kw name="Log" library="BuiltIn">
+<arg>Minha mensagem de LOG</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210802 12:41:03.265" level="INFO">Minha mensagem de LOG</msg>
+<status status="PASS" starttime="20210802 12:41:03.265" endtime="20210802 12:41:03.265"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${VAR}</var>
+<arg>variável qualquer</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20210802 12:41:03.265" level="INFO">${VAR} = variável qualquer</msg>
+<status status="PASS" starttime="20210802 12:41:03.265" endtime="20210802 12:41:03.265"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Posso logar uma ${VAR} no meio de um log</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210802 12:41:03.265" level="INFO">Posso logar uma variável qualquer no meio de um log</msg>
+<status status="PASS" starttime="20210802 12:41:03.265" endtime="20210802 12:41:03.266"/>
+</kw>
+<status status="PASS" starttime="20210802 12:41:03.264" endtime="20210802 12:41:03.266"/>
+</kw>
+<kw name="Usando LOG Console">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Posso logar na saída do console</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210802 12:41:03.266" endtime="20210802 12:41:03.266"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>Posso logar minha lista completa @{FRUTAS}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20210802 12:41:03.267" level="INFO">Posso logar minha lista completa ['maça', 'banana', 'uva', 'abacaxi']</msg>
+<status status="PASS" starttime="20210802 12:41:03.266" endtime="20210802 12:41:03.267"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Posso logar somente itens da minha lista ${FRUTAS[0]} - ${FRUTAS[1]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210802 12:41:03.269" level="INFO">Posso logar somente itens da minha lista maça - banana</msg>
+<status status="PASS" starttime="20210802 12:41:03.267" endtime="20210802 12:41:03.269"/>
+</kw>
+<status status="PASS" starttime="20210802 12:41:03.266" endtime="20210802 12:41:03.269"/>
+</kw>
+<kw name="Usando screen shots">
+<kw name="Log" library="BuiltIn">
+<arg>Nos testes web, podemos logar Screenshot com a SeleniumLibrary</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210802 12:41:03.269" level="INFO">Nos testes web, podemos logar Screenshot com a SeleniumLibrary</msg>
+<status status="PASS" starttime="20210802 12:41:03.269" endtime="20210802 12:41:03.270"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>http://www.robotizandotestes.blogspot.com.br</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210802 12:41:03.270" level="INFO">Opening browser 'firefox' to base url 'http://www.robotizandotestes.blogspot.com.br'.</msg>
+<msg timestamp="20210802 12:41:03.278" level="INFO">Firefox driver log is always forced to to: C:\Users\Ácido Florídrico\Desktop\Cursos\RobotFramework\RobotFramework_estudo\section5\Results\geckodriver-1.log</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210802 12:41:03.297" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210802 12:41:03.297" endtime="20210802 12:41:03.297"/>
+</kw>
+<msg timestamp="20210802 12:41:03.354" level="FAIL">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
+</msg>
+<status status="FAIL" starttime="20210802 12:41:03.270" endtime="20210802 12:41:03.354"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>nome_do_meuscreenshot.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20210802 12:41:03.354" endtime="20210802 12:41:03.354"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20210802 12:41:03.355" endtime="20210802 12:41:03.355"/>
+</kw>
+<status status="FAIL" starttime="20210802 12:41:03.269" endtime="20210802 12:41:03.355"/>
+</kw>
+<status status="FAIL" starttime="20210802 12:41:03.264" endtime="20210802 12:41:03.355">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
+</status>
+</test>
+<doc>Suíte para exemplificar o uso de LOGs nos testes
+Os LOGs são de grande utilidade, faça LOGs para analisar como seu teste está sendo executado nas entrelinhas
+Os LOGs te ajudam a achar falhas na automação dos seus testes
+Use LOGs sem moderação!!</doc>
+<status status="FAIL" starttime="20210802 12:41:02.827" endtime="20210802 12:41:03.356"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="UsandoLogs">UsandoLogs</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
