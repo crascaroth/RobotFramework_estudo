@@ -1,36 +1,60 @@
 *** Settings ***
-Documentation   Suíte para exemplificar o uso de LOOPS nos testes
-...             Os LOOPS devem ser pouco utilizados, mas tem hora que não tem jeito
-...             e precisamos dele mesmo, então vamos ver como é!
-...             LOOPS: use com moderação!
-...             Infelizmente o Loop FOR ainda não tem uma estrutura keyword-driven
-...             Mas o criador do Robot já disse que estão estudando uma solução!
+Documentation   Vamos aprender a fazer LOOPS usando o Robot Framework!!
 
-*** Variable ***
-@{FRUTAS}    maça  banana  uva  abacaxi
+*** Variables ***
+### Indíce da lista          0      1        2       3       4       5
+@{MINHA_LISTA_DE_FRUTAS}   maça  abacaxi  banana  morango  laranja  uva
 
 *** Test Case ***
-Caso de teste exemplo 01
-    Usando FOR com RANGE
-    Usando FOR com LISTA
-    Saindo de um FOR
-    Usando a keyword REPEAT
+Teste de REPEAT KEYWORD
+    [Documentation]  Chama uma mesma keyword várias vezes
+    Usando Repeat keyword
+
+Teste de FOR do tipo IN RANGE
+    [Documentation]  Faz um loop dentro de um intervalo que você passar
+    Usando FOR IN RANGE
+
+Teste de FOR do tipo IN
+    [Documentation]  Faz um loop percorrendo a lista que você passar
+    Usando FOR IN
+
+Teste de FOR do tipo IN ENUMERATE
+    [Documentation]  Faz um loop percorrendo a lista que você passar e percorre o indíce da lista
+    Usando FOR IN ENUMERATE
+
+Teste de Sair do FOR
+    [Documentation]  Você controla quando o FOR deve se encerrar antes de terminar todos os LOOPS
+    Usando FOR IN com EXIT FOR LOOP IF
 
 *** Keywords ***
-Usando FOR com RANGE
-    :FOR    ${COUNT}    IN RANGE    1    6
-    \    Log    Meu contador atual é: ${COUNT}. O range será de 1 a 5!
-    \    Run Keyword If    ${COUNT} == 5    Log    Acabou o loop!!!
+Usando Repeat keyword
+    Log To Console  ${\n}
+    Repeat Keyword    8x    Log To Console    Minha repetição da keyword!!!
 
-Usando FOR com LISTA
-    :FOR    ${ITEM}    IN    @{FRUTAS}
-    \    Log    Minha fruta é: ${ITEM}
-    \    Run Keyword If    '${ITEM}' == 'abacaxi'    Log    Acabou o loop!!!
+Usando FOR IN RANGE
+    Log To Console  ${\n}
+    FOR  ${CONTADOR}   IN RANGE  0   5
+        Log To Console    Minha posição agora é: ${CONTADOR}
+        Log   Minha posição agora é: ${CONTADOR}
+    END
 
-Saindo de um FOR
-    :FOR    ${ITEM}    IN    @{FRUTAS}
-    \    Exit For Loop If    '${ITEM}' == 'uva'
-    \    Log    Minha fruta é: ${ITEM}
+Usando FOR IN
+    Log To Console    ${\n}
+    FOR  ${FRUTA}   IN  @{MINHA_LISTA_DE_FRUTAS}
+        Log To Console    Minha fruta é: ${FRUTA}!
+        No Operation
+    END
 
-Usando a keyword REPEAT
-    Repeat Keyword    4    Log    Vamos logar essa frase 4 vezes!!!
+Usando FOR IN ENUMERATE
+    Log To Console    ${\n}
+    FOR   ${INDICE}   ${FRUTA}   IN ENUMERATE   @{MINHA_LISTA_DE_FRUTAS}
+        Log To Console    Minha fruta é: ${INDICE} --> ${FRUTA}!
+        No Operation
+    END
+
+Usando FOR IN com EXIT FOR LOOP IF
+    Log To Console    ${\n}
+    FOR   ${INDICE}   ${FRUTA}   IN ENUMERATE   @{MINHA_LISTA_DE_FRUTAS}
+        Log To Console    Minha fruta é: ${INDICE} --> ${FRUTA}!
+        Exit For Loop If    '${FRUTA}'=='banana'
+    END
