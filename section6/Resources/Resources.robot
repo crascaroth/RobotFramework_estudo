@@ -34,3 +34,14 @@ Conferir o Reason
 
 Conferir se retorna uma lista com "${QTDE_LIVROS}" Livros
     Length Should Be    ${RESPONSE.json()}    ${QTDE_LIVROS}
+
+
+Requisitar o livro "${ID_LIVRO}"
+    ${RESPONSE}    Get Request      fakeAPI     books/${ID_LIVRO}
+    Log                     ${RESPONSE.text}
+    Set Test Variable       ${RESPONSE}
+
+Conferir se retorna todos os dados corretos do livro "${ID}"
+    Log     ${RESPONSE}
+    Should Be Equal As Strings      15    ${ID}
+    
