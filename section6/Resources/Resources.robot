@@ -20,4 +20,17 @@ Fechar API
 ### Keywords ###
 Requisitar Todos os livros
     ${RESPONSE}   Get Request   fakeAPI   Books
-    log           ${RESPONSE.text}
+    log                   ${RESPONSE.text}
+    Set Test Variable     ${RESPONSE}
+
+Conferir o Status Code   
+    [Arguments]         ${STATUSCODE_DESEJADO}
+    Should Be Equal As Strings    ${RESPONSE.status_code}    ${STATUSCODE_DESEJADO}
+
+
+Conferir o Reason            
+    [Arguments]         ${REASON_DESEJADO}
+    Should Be Equal As Strings    ${RESPONSE.reason}    ${REASON_DESEJADO}
+
+Conferir se retorna uma lista com "${QTDE_LIVROS}" Livros
+    Length Should Be    ${RESPONSE.json()}    ${QTDE_LIVROS}

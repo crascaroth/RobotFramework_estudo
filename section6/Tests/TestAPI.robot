@@ -10,4 +10,6 @@ Test Teardown    Fechar API
 *** Test Case ***
 Caso de Teste 01: Listar todos os livros
     Requisitar Todos os livros
-
+    Conferir o Status Code   200
+    Conferir o Reason        OK
+    Conferir se retorna uma lista com "200" Livros
